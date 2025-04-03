@@ -59,6 +59,8 @@ h1 {
     font-weight: 500;
 }
 
+/* IMPORTANT pb on hover ne marche pas */
+
 @keyframes anim1 {
     0% {
         padding: 0px;
