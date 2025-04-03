@@ -1,0 +1,82 @@
+body {
+    font-size: 1.2em;
+    font-family: "Inter", sans-serif;
+  }
+
+h1 {
+    text-align:center;
+    /* text-decoration: underline; */
+    color: #123744;
+    border-bottom: 3px solid #123744;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    animation-duration: 1s;
+    animation-name: anim1;
+    text-align: center;
+    justify-items: center;
+    width: 300px;
+    height: 100px;
+    background-color: #CE1433;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.card .content {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+}
+
+.card .content p {
+    font-size: 1.8em;
+}
+
+.card .on_hover {
+    display: none;
+}
+
+.card:hover {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid#CE1433;
+}
+
+.card:hover .normal {
+    display: none;
+}
+
+.card:hover .on_hover {
+    display: inline;
+    color: #CE1433;
+    font-weight: 500;
+}
+
+@keyframes anim1 {
+    0% {
+        padding: 0px;
+    }
+
+    35% {
+        padding: 10px 0px;
+    }
+
+    100% {
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .cards {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+    }
+  }
