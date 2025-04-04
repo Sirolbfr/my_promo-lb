@@ -1,7 +1,7 @@
 body {
     font-size: 1.2em;
     font-family: "Inter", sans-serif;
-  }
+}
 
 h1 {
     text-align:center;
@@ -14,18 +14,18 @@ h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: max-content;
+    margin: auto;
+    gap: 10px;
 }
 
 .card {
-    animation-duration: 1s;
-    animation-name: anim1;
     text-align: center;
     justify-items: center;
     width: 300px;
     height: 100px;
     background-color: #CE1433;
     border-radius: 5px;
-    margin: 5px;
 }
 
 .card .content {
@@ -41,12 +41,18 @@ h1 {
 
 .card .on_hover {
     display: none;
+    transition: 500ms;
 }
 
 .card:hover {
+    animation: anim1 0.5s ease;
     background-color: #fff;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid#CE1433;
+}
+
+.card:not(:hover) {
+    animation: anim1_reverse 0.5s forwards;
 }
 
 .card:hover .normal {
@@ -59,7 +65,20 @@ h1 {
     font-weight: 500;
 }
 
-/* IMPORTANT pb on hover ne marche pas */
+footer {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background-color: #123744;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+
+/* --------- ANIMATIONS --------- */
 
 @keyframes anim1 {
     0% {
@@ -67,13 +86,30 @@ h1 {
     }
 
     35% {
-        padding: 10px 0px;
+        padding: 5px 0px;
     }
 
     100% {
-        padding: 10px;
+        padding: 5px;
     }
 }
+
+@keyframes anim1_reverse {
+    0% {
+        padding: 5px;
+    }
+
+    35% {
+        padding: 5px 0px;
+    }
+
+    100% {
+        padding: 0px;
+    }
+}
+
+
+/* --------- BREAKPOINTS --------- */
 
 @media screen and (min-width: 700px) {
     .cards {
@@ -81,4 +117,38 @@ h1 {
         grid-template-columns: 50% 50%;
         justify-items: center;
     }
-  }
+}
+
+@media screen and (min-width: 1025px) {
+    h1 {
+        border: none;
+        text-decoration: underline;
+        font-size: 60px;
+        padding: 35px 30px 0px;
+        align-items: center;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, auto) auto;
+        width: 1000px;
+        margin: auto;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 110px;
+    }
+
+    .card:nth-child(13) {
+        grid-column: 1;
+    }
+      
+    .card:nth-child(14) {
+        grid-column: 3;
+    }
+
+    footer {
+        display: block;
+    }
+}
