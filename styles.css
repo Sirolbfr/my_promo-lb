@@ -8,6 +8,11 @@ h1 {
     /* text-decoration: underline; */
     color: #123744;
     border-bottom: 3px solid #123744;
+    transition: color 0.2s;
+}
+
+h1:hover {
+    color: hsl(196, 58%, 30%);
 }
 
 .cards {
